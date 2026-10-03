@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b090a">
+<title>Para mi niña bonita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{--b0:#0b090a;--b1:#120d0f;--b2:#1a1014;--wine:#4a1b2a;--ivory:#f2e9dc;--soft:rgba(242,233,220,.7);--gold:#c8a96b;--gs:rgba(200,169,107,.32);--champ:#e6d3ae;
+--serif:"Cormorant Garamond","Playfair Display",Georgia,serif;--sans:"Manrope","Inter",system-ui,sans-serif;--g:clamp(1.5rem,7vw,5rem);--e:cubic-bezier(.22,.61,.36,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--b1);color:var(--ivory);font:300 1rem/1.8 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body.locked{overflow:hidden}
+::selection{background:var(--gold);color:var(--b0)}
+:focus-visible{outline:1px solid var(--gold);outline-offset:5px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.bg,.grain,#dust,.glow,.prog{position:fixed;pointer-events:none}
+.bg{inset:0;z-index:0;overflow:hidden;background:linear-gradient(180deg,var(--b0),var(--b2) 60%,var(--b0));opacity:var(--k,1)}
+.bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,transparent 35%,rgba(0,0,0,.65))}
+.blob{position:absolute;width:70vmax;height:70vmax;border-radius:50%;background:radial-gradient(closest-side,var(--c),transparent);animation:fl 44s ease-in-out infinite alternate;translate:0 calc(var(--sy,0)*-.04px)}
+.b1{--c:rgba(92,30,48,.65);left:-25vmax;top:-18vmax}
+.b2{--c:rgba(58,20,32,.85);right:-30vmax;bottom:-22vmax;animation-duration:58s;animation-delay:-20s}
+.b3{--c:rgba(200,169,107,.1);left:25%;top:35%;width:45vmax;height:45vmax;animation-duration:76s}
+@keyframes fl{to{transform:translate3d(9vmax,6vmax,0) scale(1.15)}}
+.grain{inset:0;z-index:90;opacity:.1;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+#dust{inset:0;z-index:1;width:100%;height:100%;opacity:var(--k,1)}
+.glow{left:0;top:0;z-index:2;width:24rem;height:24rem;margin:-12rem 0 0 -12rem;border-radius:50%;background:radial-gradient(circle,rgba(200,169,107,.08),transparent 65%);opacity:0;transition:opacity .8s}
+.prog{top:0;left:0;right:0;height:1px;z-index:60;background:var(--gold);transform:scaleX(var(--pr,0));transform-origin:left;opacity:.55}
+@media(hover:none){.glow{display:none}}
+main{position:relative;z-index:3}
+section{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:20svh var(--g)}
+.serif,.big,h1,h2{font-family:var(--serif);font-weight:300}
+.big{font-size:clamp(2rem,6.4vw,3.8rem);line-height:1.18;max-width:20ch}
+.it{font-style:italic}
+.sm{font-size:.95rem;color:var(--soft);max-width:25rem}
+.rule{display:block;width:1px;height:5rem;margin:2.6rem auto;background:linear-gradient(transparent,var(--gold),transparent)}
+.hl{display:block;width:min(14rem,50vw);height:1px;margin:2.4rem auto;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.tag{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:1.05rem}
+.heart{color:var(--gold);font-size:.8em}
+.num{font-family:var(--serif);font-weight:300;line-height:.8;letter-spacing:-.03em;background:linear-gradient(180deg,var(--ivory) 25%,var(--gold) 130%);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+#gate{position:fixed;inset:0;z-index:70;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;text-align:center;padding:2rem;background:radial-gradient(60vmax 50vmax at 50% 38%,#2a111a,var(--b0) 72%);transition:opacity 1.9s var(--e),filter 1.9s var(--e),transform 1.9s var(--e)}
+#gate.out{opacity:0;filter:blur(16px);transform:scale(1.07);pointer-events:none}
+.g{opacity:0;transform:translateY(1rem);filter:blur(6px);animation:rise 2.2s var(--e) forwards;animation-delay:var(--d)}
+@keyframes rise{to{opacity:1;transform:none;filter:none}}
+#gate .a{font-size:.95rem;color:var(--soft);letter-spacing:.06em}
+#gate h1{font-size:clamp(2.6rem,9vw,4.6rem);font-style:italic}
+#gate .num{font-size:clamp(11rem,46vw,22rem);margin:.4rem 0}
+#gate .b{font-family:var(--serif);font-size:clamp(1.25rem,3.4vw,1.6rem);color:var(--soft);font-style:italic}
+.btn{position:relative;margin-top:1.6rem;padding:1rem 2.4rem;border:1px solid var(--gs);border-radius:99px;background:rgba(255,255,255,.02);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-size:.95rem;letter-spacing:.08em;transition:transform .6s var(--e),border-color .6s,box-shadow .6s,background .6s}
+.btn span{display:inline-block;transition:transform .6s var(--e)}
+.btn:hover{transform:translateY(-3px);border-color:var(--gold);background:rgba(200,169,107,.07);box-shadow:0 14px 44px -12px rgba(200,169,107,.35)}
+.btn:hover span{transform:translateX(5px)}
+.btn:disabled{opacity:.3;pointer-events:none}
+
+.motivo{min-height:100svh;justify-content:center}
+.motivo .big{max-width:14ch;font-size:clamp(2.4rem,9vw,5rem)}
+.motivo .m{font-size:clamp(1.6rem,5vw,2.4rem);margin-bottom:2.4rem}
+.edge{position:absolute;left:var(--g);top:12svh;font-family:var(--serif);font-style:italic;color:var(--gold);font-size:.95rem}
+.edge::after{content:"";display:block;width:3rem;height:1px;margin-top:.6rem;background:var(--gs)}
+
+#time{height:340svh;padding:0}
+.stage{position:sticky;top:0;height:100svh;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;padding:0 var(--g)}
+.yr{font-family:var(--serif);font-size:clamp(1.1rem,3vw,1.5rem);color:var(--gold);letter-spacing:.3em;font-variant-numeric:lining-nums tabular-nums;margin-bottom:.6rem}
+.yr i{font-style:normal;opacity:.5;margin:0 .6em}
+.tl .num{font-size:clamp(7rem,30vw,15rem);opacity:.14;position:absolute;top:50%;left:50%;translate:-50% -52%;z-index:-1}
+.ln{font-family:var(--serif);font-size:clamp(1.5rem,5vw,2.6rem);line-height:1.25;max-width:20ch;opacity:0;transform:translateY(1.2rem);filter:blur(5px);transition:opacity 1.6s var(--e),transform 1.6s var(--e),filter 1.6s var(--e),color 1.6s}
+.ln.on{opacity:1;transform:none;filter:none}
+.ln.on~.ln.on{} .ln.dim{opacity:.35}
+.ln.big2{font-size:clamp(2.6rem,9vw,5rem);font-style:italic}
+.pl{position:absolute;left:calc(var(--g)/2);top:20svh;bottom:20svh;width:1px;background:var(--gs)}
+.pl::after{content:"";position:absolute;inset:0;background:var(--gold);transform:scaleY(var(--tp,0));transform-origin:top}
+
+.ver{min-height:100svh;justify-content:center;padding-inline:0}
+.ver>.sm,.ver>h2{padding-inline:var(--g)}
+.ver h2{font-size:clamp(2.2rem,7vw,3.8rem);font-style:italic;margin-bottom:.8rem}
+.wl{list-style:none;width:min(100%,38rem);margin-top:3rem;padding-inline:var(--g)}
+.wl li{border-top:1px solid rgba(200,169,107,.2)}
+.wl li:last-child{border-bottom:1px solid rgba(200,169,107,.2)}
+.w{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.15rem 0;text-align:left;font-family:var(--serif);font-size:clamp(2rem,7.5vw,3.2rem);font-weight:300;line-height:1.1;transition:color .6s,padding .6s var(--e)}
+.w::after{content:"+";font-family:var(--sans);font-size:1.1rem;color:var(--gold);transition:transform .6s var(--e)}
+.w[aria-expanded=true]{color:var(--champ);padding-left:.6rem}
+.w[aria-expanded=true]::after{transform:rotate(135deg)}
+.d{display:grid;grid-template-rows:0fr;transition:grid-template-rows .8s var(--e)}
+.d>p{overflow:hidden;min-height:0;text-align:left;font-family:var(--serif);font-style:italic;font-size:1.2rem;line-height:1.55;color:var(--soft);padding-left:.6rem;max-width:28rem;opacity:0;transition:opacity .8s var(--e)}
+.w[aria-expanded=true]+.d{grid-template-rows:1fr}
+.w[aria-expanded=true]+.d>p{opacity:1;padding-bottom:1.4rem}
+
+.adm{gap:0}
+.adm h2{font-size:clamp(2.2rem,7vw,3.8rem);font-style:italic;margin-bottom:22svh}
+.adm .big{margin-bottom:24svh;max-width:15ch}
+.adm .big:last-child{margin-bottom:0}
+.adm .s{font-size:clamp(1.8rem,6vw,3rem);margin-bottom:5svh;color:var(--champ)}
+
+.carta{min-height:100svh;justify-content:center}
+.carta h2{font-size:clamp(2.2rem,7vw,3.8rem);font-style:italic;margin-bottom:.6rem}
+.cw{display:grid;grid-template-rows:1fr;width:100%;transition:grid-template-rows 1.5s var(--e),opacity 1s}
+.cw>div{overflow:hidden;min-height:0;padding-top:4rem;display:flex;flex-direction:column;align-items:center}
+.done .cw{grid-template-rows:0fr;opacity:0}
+.env{position:relative;width:min(80vw,23rem);aspect-ratio:3/2;perspective:1200px;margin-bottom:2.6rem;filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))}
+.env>*{position:absolute}
+.env .bk{inset:0;background:linear-gradient(160deg,#2c1520,#1a1014);border:1px solid var(--gs);border-radius:3px}
+.env .fr{inset:0;clip-path:polygon(0 0,50% 54%,100% 0,100% 100%,0 100%);background:linear-gradient(200deg,#38192a,#22111a);border-radius:3px}
+.env .fl{left:0;right:0;top:0;height:54%;background:linear-gradient(#41202e,#2d1520);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform 1.3s var(--e);z-index:3;backface-visibility:visible}
+.open .fl{transform:rotateX(180deg)}
+.seal{left:50%;top:54%;translate:-50% -50%;width:2.8rem;height:2.8rem;border-radius:50%;z-index:4;display:grid;place-items:center;color:var(--champ);background:radial-gradient(circle at 35% 30%,#86304a,#3a1320);box-shadow:0 4px 16px rgba(0,0,0,.5);transition:opacity .6s}
+.open .seal{opacity:0}
+.pw{display:grid;grid-template-rows:0fr;width:100%;transition:grid-template-rows 2.4s var(--e)}
+.pw>div{overflow:hidden;min-height:0;visibility:hidden;padding-inline:0}
+.done .pw{grid-template-rows:1fr}.done .pw>div{visibility:visible}
+.paper{position:relative;max-width:39rem;margin:3rem auto 0;padding:clamp(2.4rem,9vw,4.8rem) clamp(1.6rem,8vw,4.2rem);text-align:left;color:#2c1b20;background:linear-gradient(175deg,#f5ecdc,#e8dac2);border-radius:3px;box-shadow:0 50px 100px -30px #000,0 0 80px -20px rgba(200,169,107,.25)}
+.paper::before{content:"";position:absolute;inset:.7rem;border:1px solid rgba(138,106,53,.3);pointer-events:none}
+.paper p{font-family:var(--serif);font-size:clamp(1.18rem,3.6vw,1.32rem);line-height:1.8;margin-bottom:1.7rem}
+.paper .v{font-style:italic;font-size:clamp(1.3rem,4vw,1.5rem);line-height:1.7;margin:2.4rem 0}
+.paper .heart{color:#8a3a4a}
+.ph{display:flex;justify-content:space-between;font-family:var(--serif);font-style:italic;color:#8a6a35;font-size:.95rem;margin-bottom:2.4rem}
+.ch{display:flex;align-items:center;gap:1rem;margin:3.6rem 0 2.6rem;color:#8a6a35;font-family:var(--serif);font-size:.95rem;letter-spacing:.25em}
+.ch::before,.ch::after{content:"";flex:1;height:1px;background:rgba(138,106,53,.35)}
+.paper .sg{font-size:2rem;font-style:italic;text-align:right;margin:3rem 0 .4rem;color:#4a1b2a}
+.paper .pn{font-size:.85rem;color:#8a6a35;text-align:center;margin:2rem 0 0;font-style:italic}
+.paper .reveal{filter:none;transform:translateY(1rem)}.paper .reveal.in{transform:none}
+
+.sc{min-height:95svh;justify-content:center}
+.sc::before{content:"";position:absolute;inset:0;background:radial-gradient(40vmax 30vmax at var(--x,50%) var(--y,50%),rgba(92,30,48,.4),transparent 70%);pointer-events:none}
+.sc .big{position:relative;font-style:italic;font-size:clamp(2.4rem,9vw,5.2rem);max-width:13ch}
+.sc.l{align-items:flex-start;text-align:left}.sc.r{align-items:flex-end;text-align:right}
+
+.sur{min-height:100svh;justify-content:center}
+.sur .btn{font-family:var(--serif);font-style:italic;font-size:1.3rem;letter-spacing:.02em}
+.sur .btn.x{opacity:0;pointer-events:none;position:absolute}
+.sur .t{opacity:0;transform:translateY(1rem);filter:blur(6px);transition:opacity 2.2s var(--e),transform 2.2s var(--e),filter 2.2s var(--e)}
+.sur .t1{font-size:clamp(1.3rem,4vw,1.7rem);color:var(--soft);font-style:italic;max-width:20ch;transition-delay:.4s}
+.sur .t2{font-size:clamp(2.4rem,8.5vw,4.4rem);margin-top:2.4rem;max-width:14ch;transition-delay:3s;color:var(--champ)}
+.sur.go .t{opacity:1;transform:none;filter:none}
+.sur::before{content:"";position:absolute;left:50%;top:50%;width:70vmin;height:70vmin;translate:-50% -50%;border-radius:50%;background:radial-gradient(closest-side,rgba(200,169,107,.16),transparent);opacity:0;scale:.6;transition:opacity 4s var(--e) 2.6s,scale 5s var(--e) 2.6s}
+.sur.go::before{opacity:1;scale:1.2}
+
+.fin{gap:0;padding-block:24svh 30svh}
+.fin::before{content:"";position:absolute;left:50%;top:38%;width:90vmin;height:90vmin;translate:-50% -50%;background:radial-gradient(closest-side,rgba(92,30,48,.45),transparent);pointer-events:none}
+.fin>*{position:relative}
+.fin .big{font-size:clamp(2.6rem,10vw,5.6rem);max-width:none}
+.fin .a{margin:3svh 0 10svh;font-size:clamp(2rem,7vw,3.4rem)}
+.fin .num{font-size:clamp(10rem,40vw,20rem);margin-bottom:12svh}
+.fin .c{font-size:clamp(1.8rem,6vw,3rem);margin-bottom:12svh}
+.fin .s{font-size:1.3rem;color:var(--soft);font-style:italic}.fin .s+.s{margin-top:1.4rem;font-size:2rem;color:var(--champ)}
+
+.reveal{opacity:0;transform:translate3d(0,1.6rem,0);filter:blur(5px);transition:opacity 1.5s var(--e),transform 1.5s var(--e),filter 1.5s var(--e);transition-delay:var(--dl,0s)}
+.reveal.in{opacity:1;transform:none;filter:none}
+.mu{position:fixed;z-index:80;top:max(1rem,env(safe-area-inset-top));right:1rem;width:2.8rem;height:2.8rem;border-radius:50%;border:1px solid var(--gs);background:rgba(11,9,10,.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--gold);display:grid;place-items:center;transition:border-color .5s,background .5s,transform .5s var(--e)}
+.mu:hover{border-color:var(--gold);transform:translateY(-2px)}
+.mu svg{width:1.1rem;height:1.1rem;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round}
+.mu[aria-pressed=false]::after{content:"";position:absolute;width:1.3rem;height:1px;background:currentColor;rotate:-45deg}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.blob{animation:none}.g,.reveal,.ln{opacity:1;transform:none;filter:none;animation:none;transition:none}#dust,.glow{display:none}.sur .t{opacity:1;transform:none;filter:none;transition:none}}
+</style>
+</head>
+<body class="locked">
+<div class="bg" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i></div>
+<canvas id="dust" aria-hidden="true"></canvas>
+<div class="glow" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="prog" aria-hidden="true"></div>
+<button class="mu" type="button" aria-pressed="false" aria-label="Activar música ambiental"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg></button>
+
+<div id="gate">
+  <p class="a g" style="--d:.6s">Para alguien muy especial.</p>
+  <h1 class="g" style="--d:2.2s">Mi amor.</h1>
+  <div class="num g" style="--d:3.8s" aria-label="diecisiete">17</div>
+  <p class="b g" style="--d:5.4s">Hoy el mundo celebra que existes.</p>
+  <button class="btn g" id="enter" style="--d:6.6s" type="button">Entrar <span>→</span></button>
+</div>
+
+<main>
+  <section class="motivo" aria-label="El motivo">
+    <p class="edge reveal">para ti</p>
+    <p class="big reveal">Hay días que merecen ser recordados.</p>
+    <span class="rule reveal" aria-hidden="true"></span>
+    <p class="serif it m reveal">Y hoy es uno de ellos.</p>
+    <p class="sm reveal">Porque hace 17 años nació una persona que, sin saberlo, algún día se convertiría en una de las personas más importantes de mi vida.</p>
+  </section>
+
+  <section id="time" class="tl" aria-label="El tiempo">
+    <div class="stage">
+      <i class="pl" aria-hidden="true"></i>
+      <div class="num" aria-hidden="true">17</div>
+      <p class="yr" aria-hidden="true"><span id="y">2009</span><i>—</i>2026</p>
+      <p class="ln big2" data-at=".06">17 años.</p>
+      <p class="ln" data-at=".28">17 años de historias.</p>
+      <p class="ln" data-at=".5">17 años de momentos.</p>
+      <p class="ln" data-at=".72">17 años convirtiéndote en la mujer increíble que eres.</p>
+    </div>
+  </section>
+
+  <section class="ver" aria-label="Lo que veo en ti">
+    <h2 class="reveal">Lo que veo en ti</h2>
+    <p class="sm reveal">Toca cada palabra.</p>
+    <ul class="wl">
+      <li><button class="w" aria-expanded="false">Preciosa.</button><div class="d"><p>Por fuera y, sobre todo, por todo lo que llevas dentro.</p></div></li>
+      <li><button class="w" aria-expanded="false">Inteligente.</button><div class="d"><p>Me encanta cómo piensas, y lo lejos que vas a llegar.</p></div></li>
+      <li><button class="w" aria-expanded="false">Increíble.</button><div class="d"><p>Lo eres incluso cuando tú no lo ves.</p></div></li>
+      <li><button class="w" aria-expanded="false">Admirable.</button><div class="d"><p>Porque hay tantas cosas de ti que admiro y probablemente ni siquiera sabes.</p></div></li>
+      <li><button class="w" aria-expanded="false">Especial.</button><div class="d"><p>Haces que hasta lo más sencillo se sienta distinto a tu lado.</p></div></li>
+      <li><button class="w" aria-expanded="false">Única.</button><div class="d"><p>No hay otra como tú, y yo tuve la suerte de encontrarte.</p></div></li>
+      <li><button class="w" aria-expanded="false">Mi niña.</button><div class="d"><p>Mi niña linda, a la que quiero cuidar siempre.</p></div></li>
+      <li><button class="w" aria-expanded="false">Mi amor.</button><div class="d"><p>Las dos palabras que más me gusta decirte.</p></div></li>
+    </ul>
+  </section>
+
+  <section class="adm" aria-label="Admiración">
+    <h2 class="reveal">Si supieras cómo te veo...</h2>
+    <p class="big reveal">Eres mucho más de lo que crees.</p>
+    <p class="big reveal">Eres increíble incluso cuando no lo ves.</p>
+    <p class="serif it s reveal">Tu forma de ser.</p>
+    <p class="serif it s reveal">Tu corazón.</p>
+    <p class="serif it s reveal">Tu manera de querer.</p>
+    <p class="serif it s reveal">Tu forma de hacerme feliz.</p>
+  </section>
+
+  <section class="carta" id="carta" aria-label="La carta">
+    <h2 class="reveal">Algo que quería decirte.</h2>
+    <p class="sm reveal">Ábrelo cuando estés lista.</p>
+    <div class="cw"><div>
+      <div class="env" aria-hidden="true"><i class="bk"></i><i class="fr"></i><i class="fl"></i><i class="seal heart">♥</i></div>
+      <button class="btn" id="open" type="button" aria-expanded="false" aria-controls="paper">Leer mi carta</button>
+    </div></div>
+    <div class="pw"><div>
+    <article class="paper" id="paper">
+      <div class="ph"><span>Para mi niña bonita</span><span>17</span></div>
+      <p class="reveal">Hola, mi amor. <span class="heart">♥</span></p>
+      <p class="reveal">¿Qué más, preciosa? Hoy estoy aquí para desearte el cumpleaños más bonito del mundo, porque hoy no es un día cualquiera. Hoy es el día en que nació una de las personas más importantes de mi vida, el amor de mi vida, la niña que llegó a mi mundo y que, sin darse cuenta, terminó convirtiéndose en una de las razones más grandes por las que soy feliz.</p>
+      <p class="reveal">Mi amor, espero de todo corazón que hoy la pases increíblemente bien, que sonrías muchísimo, que disfrutes cada segundo y que puedas sentir lo especial que eres. Porque si hay alguien que merece sentirse querida, admirada, consentida y valorada todos los días, eres tú.</p>
+      <p class="reveal">Hoy cumples 17 años, preciosa. Y pensar que hace 17 años estaba naciendo la mujer que algún día iba a convertirse en mi persona favorita, en mi niña linda, en alguien a quien iba a amar con todo mi corazón... me parece increíble.</p>
+      <p class="reveal">Gracias por haber nacido, mi amor. Gracias por existir. Gracias por estar aquí. Gracias por haber crecido hasta convertirte en la mujer tan hermosa, increíble y especial que eres hoy. Y aunque a veces no encuentre las palabras exactas para explicarte todo lo que siento por ti, quiero que sepas que te admiro muchísimo.</p>
+      <div class="ch reveal">II</div>
+      <p class="reveal">Te admiro por tu forma de ser, por tu manera de tratar a las personas, por todo lo que eres incluso cuando tú misma no te das cuenta de lo maravillosa que eres. Te admiro por tu forma de seguir adelante, por tu corazón, por tu personalidad y por esa manera tan tuya de hacer que alguien pueda sentirse feliz simplemente por tenerte cerca.</p>
+      <p class="reveal">Y sí, mi amor, eres preciosa. Eres demasiado bella. No solamente por fuera, aunque sinceramente podría pasarme horas diciéndote lo hermosa que eres y todavía me faltarían palabras. Eres hermosa por todo lo que llevas dentro, por tu forma de querer, por tus detalles, por tu manera de hacerme sentir especial y por la persona que eres.</p>
+      <p class="reveal v">De verdad, no sé cómo tuve tanta suerte de encontrarte.</p>
+      <div class="ch reveal">III</div>
+      <p class="reveal">Estoy demasiado agradecido de tenerte en mi vida. Agradecido por cada conversación, cada momento, cada risa, cada palabra, cada detalle y cada recuerdo que hemos construido. Gracias por todo lo que me has dado, por todo el cariño que me has entregado y simplemente por permitirme compartir una parte de mi vida contigo.</p>
+      <p class="reveal">Te amo muchísimo, mi preciosa. Muchísimo más de lo que probablemente puedo explicarte en una carta. Te amo en los días bonitos, en los días difíciles, cuando hablamos durante horas y también cuando simplemente estamos ahí sin decir demasiado. Te amo por quien eres y no por lo que haces por mí. Te amo porque eres tú.</p>
+      <p class="reveal v">Y quiero que nunca olvides algo: para mí eres increíble.</p>
+      <p class="reveal">Eres de esas personas que uno no quiere perder jamás. De esas personas que llegan a la vida y dejan una huella que ya no se puede borrar. Eres alguien que quiero cuidar, hacer feliz, acompañar y ver cumplir cada uno de sus sueños.</p>
+      <p class="reveal">Me hace feliz verte crecer, verte convertirte poco a poco en la mujer que quieres ser y poder estar, aunque sea de alguna manera, acompañándote en ese camino. Y estoy demasiado orgulloso de ti, mi amor. Muchísimo.</p>
+      <div class="ch reveal">IV</div>
+      <p class="reveal">Me encantaría poder estar a tu lado hoy, abrazarte, mirarte a los ojos y decirte todo esto personalmente. Me encantaría poder darte un abrazo enorme, darte un beso y recordarte una y otra vez lo importante que eres para mí. Lamentablemente no puedo estar ahí a tu lado en este momento, pero quiero que esta carta sea aunque sea una pequeña parte de ese abrazo que quisiera darte.</p>
+      <p class="reveal">Quiero que cuando leas esto recuerdes que hay alguien que está inmensamente feliz de que existas.</p>
+      <p class="reveal v">Alguien que piensa que eres una mujer increíble.<br>Alguien que te admira.<br>Alguien que te considera demasiado especial.<br>Alguien que se siente afortunado de poder llamarte su amor.<br>Y ese alguien soy yo.</p>
+      <p class="reveal">Mi niña linda, hoy quiero que disfrutes muchísimo. Come rico, ríete, celebra, recibe todos los abrazos, disfruta cada regalo y déjate consentir, porque hoy es tu día. <span class="heart">♥</span></p>
+      <p class="reveal">Y espero que entre todos esos regalos haya uno que recuerdes especialmente: el hecho de saber que eres profundamente amada.</p>
+      <p class="reveal">Porque para mí, tú fuiste y sigues siendo uno de los regalos más bonitos que me ha dado la vida.</p>
+      <p class="reveal">Y espero poder ser también un regalo bonito para ti, alguien que puedas mirar y decir: “qué bonito que llegó a mi vida”.</p>
+      <div class="ch reveal">V</div>
+      <p class="reveal v">Te amo, mi preciosa.<br>Te amo muchísimo, muchísimo, muchísimo.<br>Te amo más de lo que estas palabras pueden explicar.</p>
+      <p class="reveal v">Gracias por existir.<br>Gracias por ser tú.<br>Gracias por llegar a mi vida.<br>Gracias por dejarme quererte.<br>Y gracias por regalarme tantos momentos que guardo con muchísimo cariño.</p>
+      <p class="reveal">Feliz cumpleaños, mi amor. <span class="heart">♥</span></p>
+      <p class="reveal">Espero que estos 17 años sean solamente el comienzo de una vida llena de cosas hermosas para ti. Y ojalá yo pueda estar presente para ver muchas de ellas, acompañarte, apoyarte, celebrar tus triunfos y recordarte siempre lo increíble que eres.</p>
+      <p class="reveal">Nunca dudes de lo mucho que vales, preciosa.</p>
+      <p class="reveal v">Eres hermosa.<br>Eres increíble.<br>Eres especial.<br>Eres admirable.<br>Eres única.<br>Y eres, sin duda, una de las personas que más amo en este mundo.</p>
+      <p class="reveal">Pásala increíble, mi niña linda.</p>
+      <p class="reveal">Te amo con todo mi corazón. <span class="heart">♥</span></p>
+      <p class="reveal">Y sí... te quedo debiendo el regalo, cosita. Pero ese no se me olvida. <span class="heart">♥</span></p>
+      <p class="sg reveal">— Yo</p>
+      <p class="pn">hoja única · 17</p>
+    </article>
+    </div></div>
+  </section>
+
+  <section class="sc" style="--x:25%;--y:40%" aria-label="Momento"><p class="big reveal">Gracias por existir.</p></section>
+  <section class="sc r" style="--x:80%;--y:55%" aria-label="Momento"><p class="big reveal">Qué suerte la mía de haberte encontrado.</p></section>
+  <section class="sc" style="--x:50%;--y:30%" aria-label="Momento"><p class="big reveal">Te admiro muchísimo.</p></section>
+  <section class="sc l" style="--x:20%;--y:60%" aria-label="Momento"><p class="big reveal">Te amo porque eres tú.</p></section>
+  <section class="sc r" style="--x:75%;--y:45%" aria-label="Momento"><p class="big reveal">Eres una de las personas que más amo en este mundo.</p></section>
+
+  <section class="sur" id="sur" aria-label="Una última cosa">
+    <button class="btn reveal" id="more" type="button">Una última cosa...</button>
+    <p class="serif t t1" aria-live="polite">Si pudiera elegir un regalo para mí hoy...</p>
+    <p class="serif it t t2">Elegiría seguir teniéndote en mi vida.</p>
+  </section>
+
+  <section class="fin" id="fin" aria-label="Final">
+    <p class="big serif reveal">Feliz cumpleaños.</p>
+    <p class="big serif it a reveal">Mi amor.</p>
+    <div class="num reveal" aria-label="diecisiete">17</div>
+    <p class="big serif it c reveal">Gracias por existir.</p>
+    <p class="serif s reveal">Con todo mi amor.</p>
+    <p class="serif s reveal">— Yo <span class="heart">♥</span></p>
+  </section>
+</main>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],cl=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches,fine=matchMedia("(hover: hover) and (pointer: fine)").matches;
+const root=document.documentElement,main=$("main"),gate=$("#gate");
+main.inert=true;
+
+function observe(){
+  const els=$$(".reveal");
+  if(reduce||!("IntersectionObserver" in window)){els.forEach(e=>e.classList.add("in"));return}
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.3,rootMargin:"0px 0px -8% 0px"});
+  els.forEach(e=>io.observe(e));
+}
+$("#enter").addEventListener("click",()=>{
+  gate.classList.add("out");document.body.classList.remove("locked");main.inert=false;scrollTo(0,0);
+  setTimeout(observe,reduce?0:500);setTimeout(()=>gate.remove(),2000);
+});
+
+const tl=$("#time"),lns=$$(".ln"),yEl=$("#y"),fin=$("#fin");
+let tick=false;
+function frame(){
+  tick=false;
+  const sy=scrollY,max=root.scrollHeight-innerHeight;
+  root.style.setProperty("--sy",sy);
+  root.style.setProperty("--pr",max>0?sy/max:0);
+  const r=tl.getBoundingClientRect(),p=cl(-r.top/(r.height-innerHeight));
+  tl.style.setProperty("--tp",p);
+  lns.forEach((l,i)=>{const on=p>=l.dataset.at;l.classList.toggle("on",on);l.classList.toggle("dim",on&&i<lns.length-1&&p>=lns[i+1].dataset.at)});
+  yEl.textContent=2009+Math.round(17*cl(p/.8));
+  const k=1-.88*cl(1-(max-sy)/(innerHeight*.9));
+  root.style.setProperty("--k",k);
+}
+addEventListener("scroll",()=>{if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
+addEventListener("resize",frame);frame();
+
+$$(".w").forEach(b=>{
+  const set=o=>{$$(".w").forEach(x=>x.setAttribute("aria-expanded","false"));b.setAttribute("aria-expanded",String(o))};
+  b.addEventListener("click",()=>set(b.getAttribute("aria-expanded")!=="true"));
+  if(fine)b.addEventListener("mouseenter",()=>set(true));
+});
+
+$("#open").addEventListener("click",e=>{
+  const c=$("#carta");e.currentTarget.setAttribute("aria-expanded","true");e.currentTarget.disabled=true;
+  c.classList.add("open");setTimeout(()=>c.classList.add("done"),reduce?0:1500);
+});
+$("#more").addEventListener("click",e=>{$("#sur").classList.add("go");e.currentTarget.classList.add("x")});
+
+if(!reduce){
+  if(fine){
+    const gl=$(".glow");let gx=0,gy=0,tx=0,ty=0;
+    addEventListener("pointermove",e=>{tx=e.clientX;ty=e.clientY;gl.style.opacity=1});
+    document.addEventListener("pointerleave",()=>gl.style.opacity=0);
+    (function f(){gx+=(tx-gx)*.07;gy+=(ty-gy)*.07;gl.style.transform=`translate3d(${gx}px,${gy}px,0)`;requestAnimationFrame(f)})();
+  }
+  const cv=$("#dust"),cx=cv.getContext("2d");let w,h,d,ds=[];
+  const mk=()=>({x:Math.random()*w,y:Math.random()*h,r:(Math.random()*2.2+.6)*d,vy:-(Math.random()*.14+.03)*d,vx:(Math.random()-.5)*.06*d,p:Math.random()*6.28,s:Math.random()*.007+.002});
+  const sz=()=>{d=Math.min(devicePixelRatio||1,2);w=cv.width=innerWidth*d;h=cv.height=innerHeight*d;ds=Array.from({length:innerWidth<640?18:32},mk)};
+  sz();addEventListener("resize",sz);
+  (function f(){
+    cx.clearRect(0,0,w,h);cx.shadowColor="rgba(200,169,107,.8)";
+    for(const o of ds){o.x+=o.vx;o.y+=o.vy;o.p+=o.s;if(o.y<-10){o.y=h+10;o.x=Math.random()*w}
+      cx.shadowBlur=o.r*4;cx.fillStyle=`rgba(200,169,107,${(Math.sin(o.p)+1)/2*.35+.04})`;cx.beginPath();cx.arc(o.x,o.y,o.r,0,6.283);cx.fill()}
+    requestAnimationFrame(f);
+  })();
+}
+
+const mu=$(".mu");let ac,mg;
+mu.addEventListener("click",async()=>{
+  const on=mu.getAttribute("aria-pressed")==="true";
+  if(!ac){
+    ac=new(window.AudioContext||window.webkitAudioContext)();mg=ac.createGain();mg.gain.value=0;mg.connect(ac.destination);
+    [130.81,196,261.63,329.63,392].forEach((f,i)=>{
+      const o=ac.createOscillator(),g=ac.createGain(),l=ac.createOscillator(),lg=ac.createGain();
+      o.frequency.value=f;g.gain.value=.045/(1+i*.35);l.frequency.value=.05+i*.021;lg.gain.value=g.gain.value*.6;
+      l.connect(lg).connect(g.gain);o.connect(g).connect(mg);o.start();l.start();
+    });
+  }
+  if(ac.state==="suspended")await ac.resume();
+  mg.gain.cancelScheduledValues(ac.currentTime);mg.gain.setTargetAtTime(on?0:1,ac.currentTime,.8);
+  mu.setAttribute("aria-pressed",String(!on));mu.setAttribute("aria-label",on?"Activar música ambiental":"Silenciar música ambiental");
+});
+})();
+</script>
+</body>
+</html>
